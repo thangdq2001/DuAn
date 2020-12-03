@@ -1,6 +1,7 @@
 package com.example.duan1.Admin.Fragment.Dialog.KhachSan;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,14 @@ public class KhachSanAddDiaLog extends DialogFragment {
             public void onClick(View view) {
 
                 addData();
+                Handler hun = new Handler();
+                hun.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getContext(), "Thêm Thành Công", Toast.LENGTH_SHORT).show();
+                       dismiss();
+                    }
+                },1500);
 
             }
         });

@@ -7,6 +7,9 @@ public class KhachSan {
     private Double KsLog;
     private String KsKhuVuc;
 
+    public KhachSan() {
+    }
+
     public KhachSan(String ksId, String ksName, Double ksLat, Double ksLog, String ksKhuVuc) {
         KsId = ksId;
         KsName = ksName;

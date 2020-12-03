@@ -1,24 +1,28 @@
-package com.example.duan1.Admin.Fragment;
+package com.example.duan1.Admin.Fragment.Dialog.Nhahang;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.duan1.Admin.Fragment.Dialog.Nhahang.NhaHangAddDataDiaLog;
-import com.example.duan1.Admin.Fragment.Dialog.Nhahang.NhaHangTieuBieuAddDataDiaLog;
 import com.example.duan1.R;
 
 public class AdminNhaHangFragment extends Fragment {
-    ImageView add,update,delete,addMonAn,updateMonAn,deleteMonAn,addNhahangTieuBieu,updateNhaHangTieuBieu,deleteNhaHangTieuBieu,addMonAnTieuBieu,updateMonAnTieuBieu,deleteMonAnBieu;
+    RelativeLayout nhaHang;
+    ImageView imgInfoNhaHang;
+    ImageView add, update, delete, addMonAn, updateMonAn, deleteMonAn, addNhahangTieuBieu, updateNhaHangTieuBieu, deleteNhaHangTieuBieu, addMonAnTieuBieu, updateMonAnTieuBieu, deleteMonAnBieu;
+    TextView xemChiTiet;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.adminnhahangfragment, container, false);
+        imgInfoNhaHang = view.findViewById(R.id.imgTileNhaHang);
         add = view.findViewById(R.id.NhIconAdd);
         update = view.findViewById(R.id.NhIconSua);
         delete = view.findViewById(R.id.NhIiconXoa);
@@ -30,25 +34,26 @@ public class AdminNhaHangFragment extends Fragment {
         deleteNhaHangTieuBieu = view.findViewById(R.id.NhTbIconXoa);
         addMonAnTieuBieu = view.findViewById(R.id.NhTbMaAdd);
         updateMonAnTieuBieu = view.findViewById(R.id.NhTbMSua);
-        deleteMonAnBieu  = view.findViewById(R.id.NhTbMXoa);
+        xemChiTiet = view.findViewById(R.id.txtXemChiTietNhaHang);
+        deleteMonAnBieu = view.findViewById(R.id.NhTbMXoa);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NhaHangAddDataDiaLog nhaHangAddDataDiaLog = new NhaHangAddDataDiaLog();
-                nhaHangAddDataDiaLog.show(getChildFragmentManager(),"NhaHangAddDataDiaLog");
+                nhaHangAddDataDiaLog.show(getChildFragmentManager(), "NhaHangAddDataDiaLog");
             }
         });
-        updateMonAn.setOnClickListener(new View.OnClickListener() {
+        update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainerAdmin, new UpdateAndDeleteNhaHang()).commit();
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainerAdmin, new UpdateAndDeleteNhaHang()).commit();
             }
         });
         addMonAn.setOnClickListener(new View.OnClickListener() {
@@ -75,14 +80,12 @@ public class AdminNhaHangFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NhaHangTieuBieuAddDataDiaLog NhaHangtieuBieuDiaLog = new NhaHangTieuBieuAddDataDiaLog();
-                NhaHangtieuBieuDiaLog.show(getChildFragmentManager(),"NhaHangTieuBieuAddDataDiaLog" );
+                NhaHangtieuBieuDiaLog.show(getChildFragmentManager(), "NhaHangTieuBieuAddDataDiaLog");
             }
         });
 
 
-    return view;
-
-
+        return view;
 
 
     }

@@ -11,6 +11,9 @@ public class NhaHang {
     private String NhNhomNhaHang;
     private String NhKhuVuc;
 
+    public NhaHang() {
+    }
+
     public NhaHang(String nhId, String nhName, Double nhLat, Double nhLog, String nhNhomNhaHang, String nhKhuVuc) {
         NhId = nhId;
         NhName = nhName;

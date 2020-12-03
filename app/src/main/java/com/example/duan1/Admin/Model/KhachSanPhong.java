@@ -9,6 +9,9 @@ public class KhachSanPhong {
     private Double KsPGiamGia;
     private Double KsPGiaPhong;
 
+    public KhachSanPhong() {
+    }
+
     public KhachSanPhong(String kspId, String ksPLoai, Double ksPGiaGoc, String ksPSoPhong, int ksPSoLuongPhong, Double ksPGiamGia, Double ksPGiaPhong) {
         KspId = kspId;
         KsPLoai = ksPLoai;

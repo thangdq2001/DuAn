@@ -6,6 +6,9 @@ public class MonAnTieuBieu {
     public  int NhTbMaId;
     public String NhTbMaKhuVuc;
 
+    public MonAnTieuBieu() {
+    }
+
     public MonAnTieuBieu(String nhTbMaName, Double nhTbMaGia, int nhTbMaId, String nhTbMaKhuVuc) {
         NhTbMaName = nhTbMaName;
         NhTbMaGia = nhTbMaGia;

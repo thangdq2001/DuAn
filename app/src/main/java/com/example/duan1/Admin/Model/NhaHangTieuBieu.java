@@ -10,7 +10,10 @@ public class NhaHangTieuBieu {
      public String NhTbNhomNhaHang;
      public String NhTbKhuVuc;
 
-     public NhaHangTieuBieu(int nhTbId, String nhTbName, Double nhTbLat, Double nhTbLog,  String nhTbNhomNhaHang, String nhTbKhuVuc) {
+     public NhaHangTieuBieu() {
+     }
+
+     public NhaHangTieuBieu(int nhTbId, String nhTbName, Double nhTbLat, Double nhTbLog, String nhTbNhomNhaHang, String nhTbKhuVuc) {
           NhTbId = nhTbId;
           NhTbName = nhTbName;
           NhTbLat = nhTbLat;

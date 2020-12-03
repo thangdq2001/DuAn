@@ -1,4 +1,4 @@
-package com.example.duan1.Admin.Fragment;
+package com.example.duan1.Admin.Fragment.Dialog.KhachSan;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.duan1.Admin.Fragment.Dialog.KhachSan.KhachSanAddDiaLog;
 import com.example.duan1.R;
 
 public class AdminKhachSanFragment extends Fragment {
@@ -30,6 +29,20 @@ public class AdminKhachSanFragment extends Fragment {
             public void onClick(View view) {
                 KhachSanAddDiaLog khachSanAddDiaLog = new KhachSanAddDiaLog();
                 khachSanAddDiaLog.show(getChildFragmentManager(),"KhachSanAddDiaLog");
+            }
+        });
+        updateKhachSan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainerAdmin,new UpdateAndDeleteKhachSanFragment()
+                ).commit();
+            }
+        });
+        deleteKhachSan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainerAdmin,new UpdateAndDeleteKhachSanFragment()
+                ).commit();
             }
         });
         return view;

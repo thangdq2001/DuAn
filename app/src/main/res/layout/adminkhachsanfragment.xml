@@ -13,7 +13,7 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/imgTileNhaHang"
+            android:id="@+id/imgTileNhaHang1"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_alignParentTop="true"
@@ -55,7 +55,7 @@
             android:layout_height="35dp"
             android:layout_margin="2dp"
             android:layout_toLeftOf="@+id/KsAdd"
-            android:layout_toRightOf="@+id/imgTileNhaHang"
+            android:layout_toRightOf="@+id/imgTileNhaHang1"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
             android:text="Thêm Khách sạn Mới Liên Kết"
@@ -70,7 +70,7 @@
             android:layout_below="@+id/txtTiTleAdd"
             android:layout_margin="2dp"
             android:layout_toLeftOf="@+id/NhIconSua"
-            android:layout_toRightOf="@+id/imgTileNhaHang"
+            android:layout_toRightOf="@+id/imgTileNhaHang1"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
             android:text="Thay Đổi Thông Tin Khách sạn"
@@ -85,7 +85,7 @@
             android:layout_below="@+id/txtTileUpdate"
             android:layout_margin="2dp"
             android:layout_toLeftOf="@+id/NhIiconXoa"
-            android:layout_toRightOf="@+id/imgTileNhaHang"
+            android:layout_toRightOf="@+id/imgTileNhaHang1"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
             android:text="Xóa Khách Sạn Hết Hợp Đồng"

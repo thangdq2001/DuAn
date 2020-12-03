@@ -75,26 +75,28 @@
             />
 
         <TextView
-            android:id="@+id/txtTiTleDeleTe"
+            android:id="@+id/txtXemChiTietNhaHang"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@+id/txtTileUpdate"
-            android:layout_margin="5dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="5dp"
+
             android:layout_toLeftOf="@+id/NhIiconXoa"
             android:layout_toRightOf="@+id/imgTileNhaHang"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
-            android:text="Xóa Nhà Hàng Hết Hợp Đồng"
-            android:textAlignment="center"
-
-            />
+            android:text="Xem Chi Tiết Nhà hàng"
+            android:textAlignment="center" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_below="@+id/rcTop"
         android:id="@+id/rcBot"
         android:layout_width="match_parent"
         android:layout_height="170dp"
+        android:layout_below="@+id/rcTop"
         android:layout_margin="5dp"
         android:padding="10dp">
 
@@ -175,22 +177,23 @@
 
             />
     </RelativeLayout>
+
     <TextView
-        android:fontFamily="sans-serif-condensed-medium"
-        android:layout_below="@+id/rcBot"
+        android:id="@+id/txtTileNhaHangTieuBieu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtTileNhaHangTieuBieu"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:text="Nhà Hàng Tiêu Biểu"
+        android:layout_below="@+id/rcBot"
+        android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
-        />
+        android:text="Nhà Hàng Tiêu Biểu"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
     <RelativeLayout
-        android:layout_below="@+id/txtTileNhaHangTieuBieu"
         android:id="@+id/rcTopTieuBieu"
         android:layout_width="match_parent"
         android:layout_height="170dp"
+        android:layout_below="@+id/txtTileNhaHangTieuBieu"
         android:layout_margin="5dp"
         android:padding="10dp">
 
@@ -273,10 +276,10 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_below="@+id/rcTopTieuBieu"
         android:id="@+id/rcBotMonAnTieuBieu"
         android:layout_width="match_parent"
         android:layout_height="170dp"
+        android:layout_below="@+id/rcTopTieuBieu"
         android:layout_margin="5dp"
         android:padding="10dp">
 

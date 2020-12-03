@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.duan1.Admin.Fragment.AdminCarFragment;
 import com.example.duan1.Admin.Fragment.AdminChuyenBayFragment;
-import com.example.duan1.Admin.Fragment.AdminKhachSanFragment;
-import com.example.duan1.Admin.Fragment.AdminNhaHangFragment;
+import com.example.duan1.Admin.Fragment.Dialog.KhachSan.AdminKhachSanFragment;
+import com.example.duan1.Admin.Fragment.Dialog.Nhahang.AdminNhaHangFragment;
 import com.example.duan1.Admin.Fragment.AdminShoppingFragment;
 import com.example.duan1.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

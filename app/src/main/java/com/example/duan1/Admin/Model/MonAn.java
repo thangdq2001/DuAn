@@ -1,16 +1,40 @@
 package com.example.duan1.Admin.Model;
 
 public class MonAn {
-    public String NhMaName;
-    public Double NhMaGia;
-    public int NhMId;
-    public String NhMaNhom;
 
-    public MonAn(String nhMaName, Double nhMaGia, int nhMId, String nhMaNhom) {
+
+    public String getNhMaIdNhaHang() {
+        return NhMaIdNhaHang;
+    }
+
+    public void setNhMaIdNhaHang(String nhMaIdNhaHang) {
+        NhMaIdNhaHang = nhMaIdNhaHang;
+    }
+
+    public MonAn(String nhMaIdNhaHang, String nhMaId, String nhMaName, String nhMaNhom, double nhMaGia) {
+        NhMaIdNhaHang = nhMaIdNhaHang;
+        NhMaId = nhMaId;
         NhMaName = nhMaName;
-        NhMaGia = nhMaGia;
-        NhMId = nhMId;
         NhMaNhom = nhMaNhom;
+        NhMaGia = nhMaGia;
+    }
+    private String NhMaIdNhaHang;
+    private String NhMaId;
+    private String NhMaName;
+    private String NhMaNhom;
+    private double NhMaGia;
+
+    public MonAn(){
+
+    }
+
+
+    public String getNhMaId() {
+        return NhMaId;
+    }
+
+    public void setNhMaId(String nhMaId) {
+        NhMaId = nhMaId;
     }
 
     public String getNhMaName() {
@@ -21,27 +45,19 @@ public class MonAn {
         NhMaName = nhMaName;
     }
 
-    public Double getNhMaGia() {
-        return NhMaGia;
-    }
-
-    public void setNhMaGia(Double nhMaGia) {
-        NhMaGia = nhMaGia;
-    }
-
-    public int getNhMId() {
-        return NhMId;
-    }
-
-    public void setNhMId(int nhMId) {
-        NhMId = nhMId;
-    }
-
     public String getNhMaNhom() {
         return NhMaNhom;
     }
 
     public void setNhMaNhom(String nhMaNhom) {
         NhMaNhom = nhMaNhom;
+    }
+
+    public double getNhMaGia() {
+        return NhMaGia;
+    }
+
+    public void setNhMaGia(double nhMaGia) {
+        NhMaGia = nhMaGia;
     }
 }
