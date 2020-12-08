@@ -75,7 +75,7 @@
             />
 
         <TextView
-            android:id="@+id/txtTiTleDeleTe"
+            android:id="@+id/txtXemChiTietFragmentChuyenBay"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@+id/txtTileUpdate"
@@ -84,7 +84,7 @@
             android:layout_toRightOf="@+id/imgTileChuyenbay"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
-            android:text="Xóa Chuyến bay "
+            android:text="Xem Chi tiết "
             android:textAlignment="center"
 
             />

@@ -1,6 +1,7 @@
 package com.example.duan1.Admin.Model;
 
 public class KhachSanPhong {
+    private String idKhachSan;
     private String KspId;
     private String KsPLoai;
     private Double KsPGiaGoc;
@@ -9,10 +10,19 @@ public class KhachSanPhong {
     private Double KsPGiamGia;
     private Double KsPGiaPhong;
 
+    public String getIdKhachSan() {
+        return idKhachSan;
+    }
+
+    public void setIdKhachSan(String idKhachSan) {
+        this.idKhachSan = idKhachSan;
+    }
+
     public KhachSanPhong() {
     }
 
-    public KhachSanPhong(String kspId, String ksPLoai, Double ksPGiaGoc, String ksPSoPhong, int ksPSoLuongPhong, Double ksPGiamGia, Double ksPGiaPhong) {
+    public KhachSanPhong(String idKhachSan, String kspId, String ksPLoai, Double ksPGiaGoc, String ksPSoPhong, int ksPSoLuongPhong, Double ksPGiamGia, Double ksPGiaPhong) {
+        this.idKhachSan = idKhachSan;
         KspId = kspId;
         KsPLoai = ksPLoai;
         KsPGiaGoc = ksPGiaGoc;

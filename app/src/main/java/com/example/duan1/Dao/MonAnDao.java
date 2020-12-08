@@ -43,11 +43,11 @@ public class MonAnDao {
     }
     public static void updateMonAn(String maMonAn,MonAn monAn){
         Map<String, Object> map = new HashMap();
-        map.put("NhMaIdNhaHang",monAn.getNhMaIdNhaHang());
-        map.put("NhMaId",monAn.getNhMaId());
-        map.put("NhMaName",monAn.getNhMaName());
-        map.put("NhMaNhom",monAn.getNhMaNhom());
-        map.put("NhMaGia", monAn.getNhMaGia());
+        map.put("nhMaIdNhaHang",monAn.getNhMaIdNhaHang());
+        map.put("nhMaId",monAn.getNhMaId());
+        map.put("nhMaName",monAn.getNhMaName());
+        map.put("nhMaNhom",monAn.getNhMaNhom());
+        map.put("nhMaGia", monAn.getNhMaGia());
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("MonAn");
         databaseReference.child(maMonAn).updateChildren(map);
 

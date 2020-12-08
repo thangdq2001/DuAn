@@ -41,6 +41,14 @@ public class UpdateAndDeleteMonAnAdapter extends RecyclerView.Adapter<UpdateAndD
                     MonAnDao.delteteMonAn(arrayList.get(position).getNhMaId(),position  ,UpdateAndDeleteMonAnAdapter.this);
                 }
             });
+            holder.update.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DialogUpdateMonAn dialogUpdateMonAn = new DialogUpdateMonAn(arrayList.get(position).getNhMaId(),arrayList.get(position).getNhMaIdNhaHang());
+                    dialogUpdateMonAn.show(fragmentManager,"DialogUpdateMonAn");
+                }
+            });
+
     }
 
     @Override

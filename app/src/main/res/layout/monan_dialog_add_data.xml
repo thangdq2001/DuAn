@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp">
+    android:layout_height="match_parent">
 
     <TextView
+
         android:id="@+id/txtTileHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,26 +73,28 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Nhóm Món"
         android:textSize="18sp" />
+
     <Button
-        android:layout_marginTop="5dp"
+        android:id="@+id/btnCancelDialogAdMonAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnCancelDialogAdMonAn"
-        android:textSize="24sp"
-        android:text="Cancel"
         android:layout_below="@+id/edtAddNhomMonAn"
         android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:text="Cancel"
+        android:textSize="24sp"
 
         />
+
     <Button
-        android:layout_marginTop="5dp"
+        android:id="@+id/btnAddDataDiaLogMonAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnAddDataDiaLogMonAn"
-        android:textSize="24sp"
-        android:text="Hoàn Thành"
         android:layout_below="@+id/edtAddNhomMonAn"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:text="Add Data"
+        android:textSize="24sp"
 
         />
 

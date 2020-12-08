@@ -20,7 +20,7 @@ public class UpdateAndDeleteNhaHang extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.danhsachnhaahng_update_and_delete, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.rcDanhSachNhaHang);
-        UpdateAndDeleteNhaHangAdapter Adapter = new UpdateAndDeleteNhaHangAdapter(getChildFragmentManager());
+        UpdateAndDeleteNhaHangAdapter Adapter = new UpdateAndDeleteNhaHangAdapter(getChildFragmentManager(),getContext());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setAdapter(Adapter);
         recyclerView.setLayoutManager(layoutManager);

@@ -1,15 +1,18 @@
 package com.example.duan1.Admin.Fragment.Dialog.Nhahang;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan1.Admin.AdminActivity;
 import com.example.duan1.Admin.Fragment.Dialog.MonAn.DialogaddMonAn;
 import com.example.duan1.Admin.Model.NhaHang;
 import com.example.duan1.Dao.NhaHangDao;
@@ -18,9 +21,12 @@ import com.example.duan1.R;
 import java.util.ArrayList;
 
 public class UpdateAndDeleteNhaHangAdapter extends RecyclerView.Adapter<UpdateAndDeleteNhaHangAdapter.ViewHolder> {
-    public UpdateAndDeleteNhaHangAdapter(FragmentManager fragmentManager) {
+    Context context;
+
+    public UpdateAndDeleteNhaHangAdapter(FragmentManager fragmentManager,Context context) {
         arrayList = new ArrayList<>();
         this.fragmentManager = fragmentManager;
+        this.context = context;
     }
     FragmentManager fragmentManager;
     ArrayList<NhaHang> arrayList;
@@ -33,13 +39,13 @@ public class UpdateAndDeleteNhaHangAdapter extends RecyclerView.Adapter<UpdateAn
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         holder.nameNhaHang.setText(arrayList.get(position).getNhName());
-        holder.idNhaHang.setText("Bấm xem chi tiết nhà hàng");
+        holder.idNhaHang.setText("Thêm món ăn click để xem món ăn");
         holder.idNhaHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogaddMonAn dialogaddMonAn = new DialogaddMonAn(arrayList.get(position).getNhId());
+                ((AdminActivity)context).changeFragment(R.layout.danhsachmonan_update_and_delete);
             }
         });
            holder.delete.setOnClickListener(new View.OnClickListener() {
@@ -48,11 +54,20 @@ public class UpdateAndDeleteNhaHangAdapter extends RecyclerView.Adapter<UpdateAn
                    NhaHangDao.deleteNhahang(arrayList.get(position).getNhId(), position, UpdateAndDeleteNhaHangAdapter.this);
                }
            });
-        holder.update.setOnClickListener(new View.OnClickListener() {
+           holder.update.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   Toast.makeText(context, "Thay đổi thông tin", Toast.LENGTH_SHORT).show();
+                   DialogUpdateNhaHang dialogUpdateNhaHang = new DialogUpdateNhaHang(arrayList.get(position).getNhId());
+                   dialogUpdateNhaHang.show(fragmentManager,"DialogUpdateNhaHang");
+               }
+           });
+        holder.addMonAn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogUpdateNhaHang dialogUpdateNhaHang = new DialogUpdateNhaHang(arrayList.get(position).getNhId());
-                dialogUpdateNhaHang.show(fragmentManager, "DialogUpdateNhaHang");
+                Toast.makeText(context, "Nhập món ăn", Toast.LENGTH_SHORT).show();
+                DialogaddMonAn dialogaddMonAn = new DialogaddMonAn(arrayList.get(position).getNhId());
+                dialogaddMonAn.show(fragmentManager,"DialogaddMonAn");
             }
         });
 
@@ -65,15 +80,20 @@ public class UpdateAndDeleteNhaHangAdapter extends RecyclerView.Adapter<UpdateAn
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameNhaHang,idNhaHang;
-        ImageView delete,update;
+        ImageView delete,addMonAn,update;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameNhaHang = itemView.findViewById(R.id.txtNameNhaHangUpdateAndDelete);
             delete = itemView.findViewById(R.id.img_item_delete_nhahang);
             idNhaHang = itemView.findViewById(R.id.txtIdNhaHAng_update_and_delete);
-            update = itemView.findViewById(R.id.imgUpdate);
+            addMonAn = itemView.findViewById(R.id.imgAddMonAn);
+            update = itemView.findViewById(R.id.img_item_update_nhaHang);
         }
+    }
+    public void resetAdapter() {
+        arrayList.clear();
+        notifyDataSetChanged();
     }
 
     public void updateAdapter(NhaHang nhaHang) {

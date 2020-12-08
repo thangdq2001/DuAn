@@ -15,16 +15,18 @@ import com.example.duan1.Dao.KhachSanDao;
 import com.example.duan1.R;
 
 public class UpdateAndDeleteKhachSanFragment extends Fragment {
+    UpdateAndDeleteKhachSanAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
       View view = inflater.inflate(R.layout.updateanddelete_khachsan,container,false);
       RecyclerView recyclerView = view.findViewById(R.id.rcUpdateAndDeleteKhachSan);
-      UpdateAndDeleteKhachSanAdapter Adapter=  new UpdateAndDeleteKhachSanAdapter();
+       adapter =  new UpdateAndDeleteKhachSanAdapter(getContext(),getChildFragmentManager());
       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-      recyclerView.setAdapter(Adapter);
+      recyclerView.setAdapter(adapter);
       recyclerView.setLayoutManager(linearLayoutManager);
-        KhachSanDao.readKhachSan(Adapter,getContext());
+        KhachSanDao.readKhachSan(adapter,getContext());
       return view;
     }
+
 }

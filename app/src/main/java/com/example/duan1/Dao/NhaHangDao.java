@@ -25,6 +25,7 @@ public class NhaHangDao {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    Adapter.resetAdapter();
                     for (DataSnapshot i:snapshot.getChildren()){
                         NhaHang nhaHang = i.getValue(NhaHang.class);
                         Adapter.updateAdapter(nhaHang);

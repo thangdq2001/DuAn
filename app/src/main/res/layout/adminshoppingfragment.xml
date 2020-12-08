@@ -106,7 +106,7 @@
             android:src="@drawable/monan1" />
 
         <ImageView
-            android:id="@+id/NhMaAdd"
+            android:id="@+id/Spadd1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -117,7 +117,7 @@
             android:id="@+id/NhMSua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/NhMaAdd"
+            android:layout_below="@+id/Spadd1"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
             android:src="@drawable/updatedata" />
@@ -136,7 +136,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_margin="5dp"
-            android:layout_toLeftOf="@+id/NhMaAdd"
+            android:layout_toLeftOf="@+id/Spadd1"
             android:layout_toRightOf="@+id/imgTileMonAn"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"

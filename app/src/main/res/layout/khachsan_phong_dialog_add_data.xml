@@ -25,7 +25,7 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/edtAddLoaiPhongKhachSan"
+        android:id="@+id/edtUpdateMaChuyenBay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtTileHeader"
@@ -47,7 +47,7 @@
         android:id="@+id/edtAddGiaGocPhong"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtAddLoaiPhongKhachSan"
+        android:layout_below="@+id/edtUpdateMaChuyenBay"
         android:layout_toRightOf="@+id/txtTile2"
         android:fontFamily="sans-serif-condensed-medium"
         android:hint="Giá Gốc phòng"
@@ -135,22 +135,22 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/khacSanPhongDialogCancel"
+        android:id="@+id/btnCancelDialogAddPhongKhachSan"
         android:textSize="24sp"
-        android:text="Hủy"
-        android:layout_below="@+id/edtAddGiaPhong"
+        android:text="Cancel"
+        android:layout_below="@+id/txtTile4"
         android:layout_alignParentLeft="true"
-        android:layout_margin="10dp"
+        android:layout_marginTop="5dp"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/khachSanPhongDiaLogAddData"
+        android:id="@+id/btnAddDataDiaLogKhachSan"
         android:textSize="24sp"
-        android:text="Hoàn Thành"
-        android:layout_below="@+id/edtAddGiaPhong"
+        android:text="Add Data"
+        android:layout_below="@+id/txtTile4"
        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
+       android:layout_marginTop="5dp"
         />
 
 </RelativeLayout>

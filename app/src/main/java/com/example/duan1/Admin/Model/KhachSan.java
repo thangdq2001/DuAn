@@ -18,6 +18,7 @@ public class KhachSan {
         KsKhuVuc = ksKhuVuc;
     }
 
+
     public String getKsId() {
         return KsId;
     }

@@ -168,7 +168,7 @@
             />
 
         <TextView
-            android:id="@+id/txtTiTleDeleTeM"
+            android:id="@+id/txtTileChiTietPhong"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_below="@+id/txtTileUpdateM"
@@ -177,7 +177,7 @@
             android:layout_toRightOf="@+id/imgTiTleKSPhong"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
-            android:text="Xóa Phòng Không Hoạt Động"
+            android:text="Xem Chi tiết phòng"
             android:textAlignment="center"
 
             />

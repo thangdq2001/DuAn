@@ -26,17 +26,19 @@ public class AdminNhaHangFragment extends Fragment {
         add = view.findViewById(R.id.NhIconAdd);
         update = view.findViewById(R.id.NhIconSua);
         delete = view.findViewById(R.id.NhIiconXoa);
-        addMonAn = view.findViewById(R.id.NhMaAdd);
-        updateMonAn = view.findViewById(R.id.NhMSua);
-        deleteMonAn = view.findViewById(R.id.NhMXoa);
+
+
         addNhahangTieuBieu = view.findViewById(R.id.NhTbIconAdd);
         updateNhaHangTieuBieu = view.findViewById(R.id.NhTbIconSua);
         deleteNhaHangTieuBieu = view.findViewById(R.id.NhTbIconXoa);
-        addMonAnTieuBieu = view.findViewById(R.id.NhTbMaAdd);
-        updateMonAnTieuBieu = view.findViewById(R.id.NhTbMSua);
         xemChiTiet = view.findViewById(R.id.txtXemChiTietNhaHang);
-        deleteMonAnBieu = view.findViewById(R.id.NhTbMXoa);
 
+        xemChiTiet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainerAdmin, new UpdateAndDeleteNhaHang()).commit();
+            }
+        });
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,24 +56,6 @@ public class AdminNhaHangFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainerAdmin, new UpdateAndDeleteNhaHang()).commit();
-            }
-        });
-        addMonAn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        updateMonAn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        deleteMonAn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
 

@@ -9,10 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.duan1.Admin.Fragment.AdminCarFragment;
-import com.example.duan1.Admin.Fragment.AdminChuyenBayFragment;
+import com.example.duan1.Admin.Fragment.Dialog.ChuyenBay.AdminChuyenBayFragment;
 import com.example.duan1.Admin.Fragment.Dialog.KhachSan.AdminKhachSanFragment;
+import com.example.duan1.Admin.Fragment.Dialog.MonAn.UpdateAndDeleteMonAn;
 import com.example.duan1.Admin.Fragment.Dialog.Nhahang.AdminNhaHangFragment;
 import com.example.duan1.Admin.Fragment.AdminShoppingFragment;
+import com.example.duan1.Admin.Fragment.Dialog.phongKhachSan.DanhSachPhongKhachSan;
 import com.example.duan1.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -62,5 +64,16 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public  void changeFragment(int id){
+       switch (id){
+           case R.layout.danhsachmonan_update_and_delete:
+               getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainerAdmin, new UpdateAndDeleteMonAn()).commit();
+               break;
+           case R.layout.danhsach_phong_khachsan_view:
+               getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainerAdmin ,new DanhSachPhongKhachSan()).commit();
+               break;
+
+       }
     }
 }
