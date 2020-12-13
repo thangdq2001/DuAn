@@ -70,11 +70,11 @@ ImageView delete,update;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            maChuyenBay = itemView.findViewById(R.id.txtShowMaChuyenBayADmin);
-            gioBay = itemView.findViewById(R.id.txtShowGioBayAdmin);
-            gioDen = itemView.findViewById(R.id.txtShowGioDenAdmin);
-            thoiLuongBay = itemView.findViewById(R.id.txtShowThoiLuongBayAdmin);
-            giaVe = itemView.findViewById(R.id.txtShowGiaVeAdmin);
+            maChuyenBay = itemView.findViewById(R.id.txtShowMaChuyenBay);
+            gioBay = itemView.findViewById(R.id.txtShowGioBay);
+            gioDen = itemView.findViewById(R.id.txtShowGioDen);
+            thoiLuongBay = itemView.findViewById(R.id.txtShowThoiLuongBay);
+            giaVe = itemView.findViewById(R.id.txtShowGiaVe);
             delete = itemView.findViewById(R.id.imgDeleteChuyenBay);
             update = itemView.findViewById(R.id.imgUpdateDataDialogChuyenBay);
 
@@ -96,4 +96,5 @@ ImageView delete,update;
         arrayList.clear();
         notifyDataSetChanged();
     }
+
 }

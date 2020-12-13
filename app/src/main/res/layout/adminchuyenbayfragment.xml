@@ -106,7 +106,7 @@
             android:src="@drawable/historychuyenbay" />
 
         <ImageView
-            android:id="@+id/CbHsADd"
+            android:id="@+id/iconOpenDialogAddUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -114,19 +114,19 @@
             android:src="@drawable/ic_baseline_add_24" />
 
         <ImageView
-            android:id="@+id/CbHsUpdate"
+            android:id="@+id/addAdmin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/CbHsADd"
+            android:layout_below="@+id/iconOpenDialogAddUser"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
-            android:src="@drawable/updatedata" />
+            android:src="@drawable/ic__add" />
 
         <ImageView
             android:id="@+id/CbHsDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/CbHsUpdate"
+            android:layout_below="@+id/addAdmin"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
             android:src="@drawable/delete1" />
@@ -136,11 +136,11 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_margin="5dp"
-            android:layout_toLeftOf="@+id/CbHsADd"
+            android:layout_toLeftOf="@+id/iconOpenDialogAddUser"
             android:layout_toRightOf="@+id/imgTiTleHs"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
-            android:text="Thêm vào history"
+            android:text="Thêm nguoi dung"
             android:textAlignment="center"
 
             />
@@ -151,11 +151,11 @@
             android:layout_height="35dp"
             android:layout_below="@+id/txtTiTleAddM"
             android:layout_margin="5dp"
-            android:layout_toLeftOf="@+id/CbHsUpdate"
+            android:layout_toLeftOf="@+id/addAdmin"
             android:layout_toRightOf="@+id/imgTiTleHs"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
-            android:text="Sữa history"
+            android:text="Thêm Admin"
             android:textAlignment="center"
 
             />

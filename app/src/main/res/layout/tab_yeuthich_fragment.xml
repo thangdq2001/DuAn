@@ -20,7 +20,7 @@
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_margin="10dp"
-        android:src="@drawable/iconfind" />
+        android:src="@drawable/ic_home" />
 
     <RelativeLayout
         android:layout_width="match_parent"

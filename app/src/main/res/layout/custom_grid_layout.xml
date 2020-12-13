@@ -25,10 +25,10 @@
             <ImageView
 
                 android:layout_gravity="center"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:id="@+id/imgPr1"
-                android:src="@drawable/logo1"
+                android:src="@drawable/ic_home"
                 />
             <TextView
                 android:textColor="#777777"

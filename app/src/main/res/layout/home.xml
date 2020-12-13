@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
     android:background="@drawable/logo6">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/header"
@@ -131,7 +134,7 @@
             </androidx.cardview.widget.CardView>
             <!-- chuyen bay -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewCoFe"
+                android:id="@+id/cardViewFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="3"
@@ -150,16 +153,17 @@
                     android:padding="10dp">
 
                     <ImageView
+                        android:id="@+id/imgOpenFood"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/cofe" />
+                        android:src="@drawable/foood" />
 
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:text="Coffe"
+                        android:text="Nhà hàng"
                         android:textColor="#000000"
                         android:textSize="12sp" />
 
@@ -280,9 +284,7 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@drawable/shoping_car" />
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -311,7 +313,6 @@
         android:gravity="center">
 
         <TextView
-
             android:id="@+id/txtTiTleThongTinTieuBieu"
             android:layout_width="match_parent"
             android:layout_height="25dp"
@@ -330,7 +331,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="2dp"
-            android:background="@drawable/logoagoda" />
+            android:background="@drawable/logo1" />
 
     </RelativeLayout>
 
@@ -359,8 +360,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/myrecyclerview"
-
             />
-    </RelativeLayout>
 
+    </RelativeLayout>
 </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

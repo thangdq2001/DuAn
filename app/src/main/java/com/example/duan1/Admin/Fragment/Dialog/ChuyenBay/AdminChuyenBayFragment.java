@@ -11,11 +11,13 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.duan1.Admin.Fragment.Dialog.User.AddUserDialog;
+import com.example.duan1.Admin.Fragment.Dialog.User.DialogAddDataAdmin;
 import com.example.duan1.R;
 
 public class AdminChuyenBayFragment extends Fragment {
     TextView  xemChiTiet;
-    ImageView addChuyenBay;
+    ImageView addChuyenBay,addUser,addAdmin;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +40,24 @@ public class AdminChuyenBayFragment extends Fragment {
                 diaLogAddChuyenBay.show(getFragmentManager(),"DiaLogAddChuyenBay");
             }
         });
+        addUser = view.findViewById(R.id.iconOpenDialogAddUser);
+        addUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddUserDialog addUserDialog = new AddUserDialog();
+                addUserDialog.show(getFragmentManager(),"AddUserDialog");
+            }
+        });
+
+         addAdmin = view.findViewById(R.id.addAdmin);
+         addAdmin.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 DialogAddDataAdmin dialog = new DialogAddDataAdmin();
+                 dialog.show(getFragmentManager(),"DialogAddDataAdmin");
+             }
+         });
+
         return view;
     }
 }

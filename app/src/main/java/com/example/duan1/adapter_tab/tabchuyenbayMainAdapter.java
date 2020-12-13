@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.duan1.FragemntMain.chuyenBayFragment.chuyenbay1chiueFragment;
-import com.example.duan1.FragemntMain.chuyenBayFragment.chuyenbay2chieuFragment;
+import com.example.duan1.FragemntMain.chuyenBayFragment.danhsachchuyenbayFragmentKH;
 import com.example.duan1.R;
 
 /**
@@ -36,7 +36,7 @@ public class tabchuyenbayMainAdapter extends FragmentPagerAdapter {
               fragment = new chuyenbay1chiueFragment();
                     break;
           case  1:
-              fragment = new chuyenbay2chieuFragment();
+              fragment = new danhsachchuyenbayFragmentKH();
               break;
 
       }
@@ -51,7 +51,7 @@ public class tabchuyenbayMainAdapter extends FragmentPagerAdapter {
             case 0:
                 return "Một chiều";
             case 1:
-                return "Khứ Hồi";
+                return "Danh sách chuyến bay";
 
         }
         return null;

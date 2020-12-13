@@ -23,6 +23,7 @@ public class UpdateAndDeleteKhachSanFragment extends Fragment {
       RecyclerView recyclerView = view.findViewById(R.id.rcUpdateAndDeleteKhachSan);
        adapter =  new UpdateAndDeleteKhachSanAdapter(getContext(),getChildFragmentManager());
       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+//      ,RecyclerView.HORIZONTAL,false
       recyclerView.setAdapter(adapter);
       recyclerView.setLayoutManager(linearLayoutManager);
         KhachSanDao.readKhachSan(adapter,getContext());

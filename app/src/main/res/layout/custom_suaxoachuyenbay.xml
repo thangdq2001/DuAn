@@ -14,7 +14,7 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/txtShowGioBayAdmin"
+                android:id="@+id/txtShowGioBay"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_alignParentLeft="true"
@@ -28,11 +28,11 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@+id/txtShowGioBayAdmin"
+                android:layout_toRightOf="@+id/txtShowGioBay"
                 android:src="@drawable/baydenvector" />
 
             <TextView
-                android:id="@+id/txtShowGioDenAdmin"
+                android:id="@+id/txtShowGioDen"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginLeft="15dp"
@@ -42,21 +42,21 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/txtShowThoiLuongBayAdmin"
+                android:id="@+id/txtShowThoiLuongBay"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@+id/txtShowGioDenAdmin"
+                android:layout_toRightOf="@+id/txtShowGioDen"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="2h10m"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/txtShowMaChuyenBayADmin"
+                android:id="@+id/txtShowMaChuyenBay"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_below="@+id/txtShowGioBayAdmin"
+                android:layout_below="@+id/txtShowGioBay"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
@@ -67,14 +67,14 @@
                 android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/txtShowGiaVeAdmin"
+                android:id="@+id/txtShowGiaVe"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@+id/txtShowGioBayAdmin"
+                android:layout_below="@+id/txtShowGioBay"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_toLeftOf="@+id/btnChonChuyenBay"
-                android:layout_toRightOf="@+id/txtShowMaChuyenBayADmin"
+                android:layout_toRightOf="@+id/txtShowMaChuyenBay"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:gravity="center"
                 android:text="399,000 VND"
@@ -94,7 +94,7 @@
                 android:id="@+id/imgDeleteChuyenBay"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_below="@+id/txtShowGioBayAdmin"
+                android:layout_below="@+id/txtShowGioBay"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="5dp"
                 android:src="@drawable/delete1" />

@@ -1,14 +1,48 @@
 package com.example.duan1;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.example.duan1.Dao.UserDao;
 
 public class LoginAcivity extends AppCompatActivity {
-
+EditText username,password;
+Button dangNhap,AdminDangNhap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_acivity);
+        username = findViewById(R.id.edtUsernameDangNhap);
+        password = findViewById(R.id.edtPasswordDangNhap);
+        dangNhap = findViewById(R.id.btnDangNhap);
+        dangNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tk = username.getText().toString();
+                String pass = password.getText().toString();
+                UserDao.readData(tk,pass,LoginAcivity.this);
+
+//                String user = username.getText().toString();
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("user",user);
+//                        Intent i = new Intent(LoginAcivity.this,MainActivity.class);
+//                        i.putExtra("bunde",bundle);
+            }
+        });
+        AdminDangNhap =findViewById(R.id.btnDangNhapAdmin);
+        AdminDangNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tk = username.getText().toString();
+                String pass = password.getText().toString();
+                UserDao.readDataAdmin(tk,pass,LoginAcivity.this);
+            }
+        });
+
     }
+
 }

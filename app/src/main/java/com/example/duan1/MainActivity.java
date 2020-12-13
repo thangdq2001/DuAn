@@ -1,41 +1,112 @@
 package com.example.duan1;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
+import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.duan1.Dao.NhaHangDao;
 import com.example.duan1.FragemntMain.HomeFragMent;
+import com.example.duan1.FragemntMain.NhaHang.GiaoDienChinhNhaHang;
 import com.example.duan1.FragemntMain.TravrelFragment;
-
+import com.example.duan1.FragemntMain.chuyenBayFragment.ThanhToanChuyenBay;
 import com.example.duan1.FragemntMain.likeFragment.LikeFragment;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Calendar;
+
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+    private Location location;
+    private GoogleApiClient gac;
     Button btnAdd;
     BottomNavigationView bottomNavigationView;
     Fragment fragment = null;
+    String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        btnAdd = findViewById(R.id.btnAddData);
-//        btnAdd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                testDiaLog diaLog = new testDiaLog();
-//                diaLog.show(getSupportFragmentManager(),"testDiaLog");
-//            }
-//        });
-//    customBottom();
         customBottom();
-      getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer,new HomeFragMent()).commit();
-        
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new HomeFragMent()).commit();
+        if (checkPlayServices()) {
+            // Building the GoogleApi client
+            buildGoogleApiClient();
+        }
+        Bundle b = getIntent().getBundleExtra("UserInfo");
+
+  username =  b.getString("username");
+
+
     }
+
+    private boolean checkPlayServices() {
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+                GooglePlayServicesUtil.getErrorDialog(resultCode, this, 1000).show();
+            } else {
+                Toast.makeText(this, "Thiết bị này không hỗ trợ.", Toast.LENGTH_LONG).show();
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+
+    // locaiton
+    public String getLocation(Double lat, Double lon) {
+        String KhoangCach ="";
+        Double khoanCach =0.0;
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Kiểm tra quyền hạn
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 2);
+
+
+        } else {
+            location = LocationServices.FusedLocationApi.getLastLocation(gac);
+            if (location != null) {
+                double latitude = location.getLatitude();
+                double longitude = location.getLongitude();
+                // Hiển thị
+                Double varKc = NhaHangDao.TinhKhoangCachNhaHang(latitude, longitude, lat, lon);
+                khoanCach = varKc;
+                Toast.makeText(this, String.valueOf(khoanCach), Toast.LENGTH_SHORT).show();
+                Log.d("toat",String.valueOf(khoanCach));
+                KhoangCach = String.valueOf(khoanCach).substring(0,2);
+                return KhoangCach;
+
+            } else {
+                Toast.makeText(this, "hông thể hiển thị vị trí.Bạn đã kích hoạt location trên thiết bị chưa?)", Toast.LENGTH_SHORT).show();
+
+            }
+
+        }
+
+        return KhoangCach;
+
+    }
+
 
     // custom bottom navigation
     public void customBottom() {
@@ -64,4 +135,66 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-}   
+    public void changeFragmentKh(int id, String MaCb, String TimeBay, String TimeDen, Double Price, Double Vat, Double Phi) {
+        switch (id) {
+            case R.layout.layout_thanh_toan_chuyenbay:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new ThanhToanChuyenBay(MaCb, TimeBay, TimeDen, Price, Vat, Phi
+                )).commit();
+                break;
+        }
+    }
+    public void changeFragmet2(int idLayout,String nameNh,String idNh,String locaiton){
+        switch (idLayout){
+            case R.layout.giaodien_chinh_nhahang:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new GiaoDienChinhNhaHang(nameNh,idNh,locaiton)).commit();
+                break;
+        }
+    }
+
+    protected synchronized void buildGoogleApiClient() {
+        if (gac == null) {
+            gac = new GoogleApiClient.Builder(this)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .addApi(LocationServices.API).build();
+        }
+    }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+    }
+
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        gac.connect();
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Toast.makeText(this, "Lỗi kết nối: " + connectionResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
+    }
+
+    protected void onStart() {
+        gac.connect();
+        super.onStart();
+    }
+
+    protected void onStop() {
+        gac.disconnect();
+        super.onStop();
+    }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static String TimeNow(){
+        DateFormat dateFormat = new SimpleDateFormat("dd,MM,yyyy, HH.mm");
+        String date = dateFormat.format(Calendar.getInstance().getTime());
+        return date;
+
+    }
+
+    public String getUsername(){
+        String tk = username;
+        return tk;
+    }
+}

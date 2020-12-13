@@ -1,33 +1,30 @@
 package com.example.duan1.Admin.Model;
 
 public class NhaHangTieuBieu {
-     public int NhTbId;
-     public String NhTbName;
-     public Double NhTbLat;
-     public Double NhTbLog;
-     public String NhTbDanhGia;
-     public String NhTbNhanXet;
-     public String NhTbNhomNhaHang;
-     public String NhTbKhuVuc;
+     private String NhTbId;
+     private String NhTbName;
+     private Double NhTbLat;
+     private Double NhTbLog;
+     private String NhTbNhomNhaHang;
+     private String NhTbKhuVuc;
 
      public NhaHangTieuBieu() {
      }
 
-     public NhaHangTieuBieu(int nhTbId, String nhTbName, Double nhTbLat, Double nhTbLog, String nhTbNhomNhaHang, String nhTbKhuVuc) {
+     public NhaHangTieuBieu(String nhTbId, String nhTbName, Double nhTbLat, Double nhTbLog, String nhTbNhomNhaHang, String nhTbKhuVuc) {
           NhTbId = nhTbId;
           NhTbName = nhTbName;
           NhTbLat = nhTbLat;
           NhTbLog = nhTbLog;
-
           NhTbNhomNhaHang = nhTbNhomNhaHang;
           NhTbKhuVuc = nhTbKhuVuc;
      }
 
-     public int getNhTbId() {
+     public String getNhTbId() {
           return NhTbId;
      }
 
-     public void setNhTbId(int nhTbId) {
+     public void setNhTbId(String nhTbId) {
           NhTbId = nhTbId;
      }
 
@@ -53,22 +50,6 @@ public class NhaHangTieuBieu {
 
      public void setNhTbLog(Double nhTbLog) {
           NhTbLog = nhTbLog;
-     }
-
-     public String getNhTbDanhGia() {
-          return NhTbDanhGia;
-     }
-
-     public void setNhTbDanhGia(String nhTbDanhGia) {
-          NhTbDanhGia = nhTbDanhGia;
-     }
-
-     public String getNhTbNhanXet() {
-          return NhTbNhanXet;
-     }
-
-     public void setNhTbNhanXet(String nhTbNhanXet) {
-          NhTbNhanXet = nhTbNhanXet;
      }
 
      public String getNhTbNhomNhaHang() {

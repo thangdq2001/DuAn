@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan1.FragemntMain.NhaHang.NhaHangFragmentKhachHang;
 import com.example.duan1.FragemntMain.chuyenBayFragment.chuyenBayMainfragment;
 import com.example.duan1.R;
 import com.example.duan1.aDapter.GridViewBottomMainAdapter;
@@ -29,7 +31,8 @@ public class HomeFragMent extends Fragment {
     List<String> location;
     List<Integer> img;
     GridViewBottomMainAdapter adapter;
-    CardView hotel, flight, coffe, hoatdong, oderCar, shopping;
+    CardView hotel, flight, food, hoatdong, oderCar, shopping;
+    ImageView imgOpenFood;
 
     @Nullable
     @Override
@@ -48,14 +51,32 @@ public class HomeFragMent extends Fragment {
         //opencardView-->Chuyến bay
         flight = view.findViewById(R.id.cardViewChuyenBay);
         openCardViewFlight();
+        food = view.findViewById(R.id.cardViewFood);
+        food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new NhaHangFragmentKhachHang()).commit();
+                Toast.makeText(getContext(), "Open Food", Toast.LENGTH_SHORT).show();
+            }
+        });
+        imgOpenFood = view.findViewById(R.id.imgOpenFood);
+        imgOpenFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new NhaHangFragmentKhachHang()).commit();
+                Toast.makeText(getContext(), "Open Food", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         return view;
     }
-    public void openCardViewFlight(){
+
+    public void openCardViewFlight() {
         flight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer,new chuyenBayMainfragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new chuyenBayMainfragment()).commit();
             }
         });
     }
@@ -74,7 +95,12 @@ public class HomeFragMent extends Fragment {
         // add data to arraylist img
         img.add(R.drawable.logo1);
         img.add(R.drawable.logo2);
-        img.add(R.drawable.logoagoda);
+        img.add(R.drawable.logo2);
+        img.add(R.drawable.logo2);
+        
+        
+        
+        
         img.add(R.drawable.logo4);
         // add data arraylist locaiton
 

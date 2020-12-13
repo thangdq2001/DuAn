@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.duan1.Admin.Fragment.Dialog.MonAn.UpdateAndDeleteMonAnAdapter;
 import com.example.duan1.Admin.Model.MonAn;
+import com.example.duan1.FragemntMain.NhaHang.DanhSachMonAnAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -64,5 +65,49 @@ public class MonAnDao {
        });
 
 
+    }
+    public static void readMonAnKhachHang(final DanhSachMonAnAdapter Adapter, final Context context){
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("MonAn");
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot i:snapshot.getChildren()){
+                        MonAn monAn = i.getValue(MonAn.class);
+                        Adapter.updateAdapter(monAn);
+                    }
+                }
+                else {
+                    Toast.makeText(context, "Cảnh báo: Không có dữ liệu", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    public static void SendDish(String MaNhhang, final DanhSachMonAnAdapter adapter, final Context context){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("MonAn");
+        ref.orderByChild("nhMaIdNhaHang").equalTo(MaNhhang).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot i:snapshot.getChildren()){
+                        MonAn monAn = i.getValue(MonAn.class);
+                        adapter.updateAdapter(monAn);
+                    }
+                }
+                else {
+                    Toast.makeText(context, "Cảnh báo: Không có dữ liệu", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

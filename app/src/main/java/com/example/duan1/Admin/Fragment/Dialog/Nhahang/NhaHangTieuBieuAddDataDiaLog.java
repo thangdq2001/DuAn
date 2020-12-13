@@ -66,14 +66,14 @@ public class NhaHangTieuBieuAddDataDiaLog extends DialogFragment {
     private void addDataNhaHang(){
         FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
         final  DatabaseReference databaseReference = mDatabase.getReference("NhaHangTieuBieu");
-        final  int id = Integer.parseInt(NhId.getText().toString());
         final  String name = String.valueOf(NhName.getText().toString());
         final double lat = Double.parseDouble(NhLat.getText().toString());
         final double log = Double.parseDouble(NhLog.getText().toString());
         final String nhom = String.valueOf(NhNhom.getText().toString());
         final String KhuVuc = String.valueOf(NhKhuVuc.getText().toString());
+        String id = databaseReference.push().getKey();
         NhaHangTieuBieu Nh = new NhaHangTieuBieu(id,name,lat,log,nhom,KhuVuc);
-        String id1 = databaseReference.push().getKey();
-        databaseReference.child(id1).setValue(Nh);
+
+        databaseReference.child(id).setValue(Nh);
     }
 }

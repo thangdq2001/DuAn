@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.duan1.Admin.Fragment.Dialog.ChuyenBay.DanhSachChuyenBayAdapter;
 import com.example.duan1.Admin.Model.ChuyenBay;
+import com.example.duan1.FragemntMain.chuyenBayFragment.CustomDanhhSachchuyenBayKhAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -71,4 +72,31 @@ public class ChuyenBayDao {
         });
 
     }
+    // doc du lieu show to khach hang
+    public static  void readChuyenBayKhachHang(final CustomDanhhSachchuyenBayKhAdapter Adapter, final Context context){
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("ChuyenBay");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Adapter.resetAdapterKhacHang();
+
+                    for (DataSnapshot i:snapshot.getChildren()){
+                        ChuyenBay chuyenBay = i.getValue(ChuyenBay.class);
+                        Adapter.updateAdapter(chuyenBay);
+
+                    }
+                }else {
+                    Toast.makeText(context, "Cảnh báo: không có dử liệu!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 }
