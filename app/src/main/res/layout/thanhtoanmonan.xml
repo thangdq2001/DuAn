@@ -149,11 +149,11 @@
             tools:listitem="@layout/custom_chitietmonan" />
     </RelativeLayout>
     <RelativeLayout
+        android:layout_marginBottom="10dp"
         android:id="@+id/recBottom"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50dp"
+       android:layout_above="@+id/btnTienHanhThanhToan"
         android:background="#FFFFFF">
 
         <TextView
@@ -175,11 +175,22 @@
             android:layout_margin="5dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:gravity="center"
-            android:text="399000"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp" />
 
+
     </RelativeLayout>
+    <Button
+        android:background="@drawable/customdatxehengi"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/btnTienHanhThanhToan"
+        android:text="Tiến Hành Thanh toán"
+        />
 
 </RelativeLayout>

@@ -11,7 +11,8 @@ import com.example.duan1.Dao.UserDao;
 
 public class LoginAcivity extends AppCompatActivity {
 EditText username,password;
-Button dangNhap,AdminDangNhap;
+Button dangNhap,AdminDangNhap,dangKi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +27,6 @@ Button dangNhap,AdminDangNhap;
                 String pass = password.getText().toString();
                 UserDao.readData(tk,pass,LoginAcivity.this);
 
-//                String user = username.getText().toString();
-//                        Bundle bundle = new Bundle();
-//                        bundle.putString("user",user);
-//                        Intent i = new Intent(LoginAcivity.this,MainActivity.class);
-//                        i.putExtra("bunde",bundle);
             }
         });
         AdminDangNhap =findViewById(R.id.btnDangNhapAdmin);
@@ -40,6 +36,14 @@ Button dangNhap,AdminDangNhap;
                 String tk = username.getText().toString();
                 String pass = password.getText().toString();
                 UserDao.readDataAdmin(tk,pass,LoginAcivity.this);
+            }
+        });
+        dangKi = findViewById(R.id.btnDangKi);
+        dangKi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogDangKi dialogDangKi = new DialogDangKi();
+                dialogDangKi.show(getSupportFragmentManager(),"DialogDangKi");
             }
         });
 

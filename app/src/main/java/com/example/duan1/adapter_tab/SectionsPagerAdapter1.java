@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.duan1.FragemntMain.likeFragment.historyFragment;
-import com.example.duan1.FragemntMain.likeFragment.yeuthichFragment;
+import com.example.duan1.KhachHang.likeFragment.historyFragment;
+import com.example.duan1.KhachHang.likeFragment.yeuthichFragment;
 import com.example.duan1.R;
 
 /**

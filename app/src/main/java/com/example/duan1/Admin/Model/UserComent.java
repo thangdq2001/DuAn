@@ -5,16 +5,9 @@ public class UserComent {
     private String coment;
     private String idNhahang;
     private String idBinhLuan;
-
+    private String nameUser;
     public UserComent(){
 
-    }
-
-    public UserComent(String username, String coment, String idNhahang, String idBinhLuan) {
-        this.username = username;
-        this.coment = coment;
-        this.idNhahang = idNhahang;
-        this.idBinhLuan = idBinhLuan;
     }
 
     public String getUsername() {
@@ -47,5 +40,21 @@ public class UserComent {
 
     public void setIdBinhLuan(String idBinhLuan) {
         this.idBinhLuan = idBinhLuan;
+    }
+
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
+
+    public UserComent(String username, String coment, String idNhahang, String idBinhLuan, String nameUser) {
+        this.username = username;
+        this.coment = coment;
+        this.idNhahang = idNhahang;
+        this.idBinhLuan = idBinhLuan;
+        this.nameUser = nameUser;
     }
 }

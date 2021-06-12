@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.duan1.Admin.Fragment.Dialog.KhachSan.UpdateAndDeleteKhachSanAdapter;
 import com.example.duan1.Admin.Model.KhachSan;
+import com.example.duan1.KhachHang.KhachSan.DanhSachKhachSanAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,6 +21,30 @@ import java.util.Map;
 public class KhachSanDao {
 
     public static void readKhachSan(final UpdateAndDeleteKhachSanAdapter Adapter, final Context context){
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("KhachSan");
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Adapter.resetAdapter();
+                    for (DataSnapshot i:snapshot.getChildren()){
+                        KhachSan khachSan = i.getValue(KhachSan.class);
+                        Adapter.updateAdapter(khachSan);
+                    }
+
+                }
+                else {
+                    Toast.makeText(context, "Cảnh báo: Không có dữ liệu!", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    public static void readKhachSanKh(final DanhSachKhachSanAdapter Adapter, final Context context){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("KhachSan");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override

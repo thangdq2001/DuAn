@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.duan1.Admin.Fragment.Dialog.ChuyenBay.DanhSachChuyenBayAdapter;
 import com.example.duan1.Admin.Model.ChuyenBay;
-import com.example.duan1.FragemntMain.chuyenBayFragment.CustomDanhhSachchuyenBayKhAdapter;
+import com.example.duan1.KhachHang.chuyenBayFragment.CustomDanhhSachchuyenBayKhAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

@@ -50,7 +50,7 @@
             android:rowCount="3">
             <!-- khach san-->
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewNhaHang"
+                android:id="@+id/cardViewKhachSan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_rowWeight="3"
@@ -343,23 +343,92 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
         android:gravity="center">
-        <TextView
+       <TextView
+           android:textSize="18sp"
+           android:layout_marginRight="10dp"
+           android:textColor="#660000"
+           android:layout_marginLeft="10dp"
+           android:text="Ưu Đãi Ăn Uống"
+           android:fontFamily="sans-serif-condensed-medium"
+           android:layout_width="match_parent"
+           android:layout_height="30dp"
+           android:id="@+id/txtTileANUong"
+           />
+        <ImageView
+            android:id="@+id/imgUudainh1"
+            android:src="@drawable/trungnguyen"
             android:layout_marginLeft="10dp"
-            android:fontFamily="sans-serif-black"
-            android:textSize="18sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtTiTleTieuBieu"
-            android:text="Khách Sạn Tiêu Biểu"
-            android:layout_alignParentTop="true"
+
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txtTileANUong"
             />
-        <androidx.recyclerview.widget.RecyclerView
-            android:background="@drawable/degsi_mrecyclerview_main"
-            android:layout_margin="5dp"
-            android:layout_below="@+id/txtTiTleTieuBieu"
+        <ImageView
+            android:id="@+id/imgUudainh2"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/highlans"
+            android:layout_marginRight="10dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txtTileANUong"
+            />
+        <TextView
+            android:id="@+id/txtTileKhachSan"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="18sp"
+            android:layout_marginRight="10dp"
+            android:textColor="#0000FF"
+            android:layout_marginLeft="10dp"
+            android:text="Khách Sạn Mới"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/myrecyclerview"
+            android:layout_height="40dp"
+            android:layout_below="@+id/imgUudainh1"
+            />
+        <ImageView
+            android:id="@+id/imgKsUd1"
+            android:src="@drawable/kingshothel"
+            android:layout_marginLeft="10dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txtTileKhachSan"
+            />
+        <ImageView
+            android:id="@+id/imgKsUd2"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/muonthanh1"
+            android:layout_marginRight="10dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txtTileKhachSan"
+            />
+        <TextView
+            android:id="@+id/txtTileCb"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="18sp"
+            android:layout_marginRight="10dp"
+            android:textColor="#001100"
+            android:layout_marginLeft="10dp"
+            android:text="Hãng Bay Ưu Đãi"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/imgKsUd2"
+            />
+        <ImageView
+            android:id="@+id/imgCbUd1"
+            android:src="@drawable/bambobay"
+            android:layout_marginLeft="10dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txtTileCb"
+            />
+        <ImageView
+            android:id="@+id/imgCbud2"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/vietjet"
+            android:layout_marginRight="10dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/txtTileCb"
             />
 
     </RelativeLayout>

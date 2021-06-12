@@ -5,16 +5,17 @@ apply plugin: 'com.google.firebase.firebase-perf'
 
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.1"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
 
     defaultConfig {
         applicationId "com.example.duan1"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         multiDexEnabled true
         versionCode 1
         versionName "1.0"
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -51,4 +52,5 @@ dependencies {
     implementation "androidx.cardview:cardview:1.0.0"
     compile 'com.google.android.gms:play-services-location:11.8.0'
 
+    
 }

@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.duan1.FragemntMain.chuyenBayFragment.chuyenbay1chiueFragment;
-import com.example.duan1.FragemntMain.chuyenBayFragment.danhsachchuyenbayFragmentKH;
+import com.example.duan1.KhachHang.chuyenBayFragment.chuyenbay1chiueFragment;
+import com.example.duan1.KhachHang.chuyenBayFragment.danhsachchuyenbayFragmentKH;
 import com.example.duan1.R;
 
 /**

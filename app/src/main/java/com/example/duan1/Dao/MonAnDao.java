@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.duan1.Admin.Fragment.Dialog.MonAn.UpdateAndDeleteMonAnAdapter;
 import com.example.duan1.Admin.Model.MonAn;
-import com.example.duan1.FragemntMain.NhaHang.DanhSachMonAnAdapter;
+import com.example.duan1.KhachHang.NhaHang.DanhSachMonAnAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +25,7 @@ public class MonAnDao {
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Adapter.resetAdpter();
                 if (snapshot.exists()) {
                     for (DataSnapshot i:snapshot.getChildren()){
                         MonAn monAn = i.getValue(MonAn.class);

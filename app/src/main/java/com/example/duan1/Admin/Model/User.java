@@ -4,12 +4,10 @@ public class User {
     private String username;
     private String password;
     private String idUSer;
-
-    public User(String username, String password, String idUSer) {
-        this.username = username;
-        this.password = password;
-        this.idUSer = idUSer;
-    }
+    private String ten;
+    private String DiaChi;
+    private String sdt;
+    private String mail;
 
     public String getUsername() {
         return username;
@@ -33,6 +31,48 @@ public class User {
 
     public void setIdUSer(String idUSer) {
         this.idUSer = idUSer;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    public String getDiaChi() {
+        return DiaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        DiaChi = diaChi;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public User(String username, String password, String idUSer, String ten, String diaChi, String sdt, String mail) {
+        this.username = username;
+        this.password = password;
+        this.idUSer = idUSer;
+        this.ten = ten;
+        DiaChi = diaChi;
+        this.sdt = sdt;
+        this.mail = mail;
     }
 
     public User(){

@@ -1,6 +1,7 @@
 package com.example.duan1;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
@@ -21,11 +22,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.duan1.Dao.NhaHangDao;
-import com.example.duan1.FragemntMain.HomeFragMent;
-import com.example.duan1.FragemntMain.NhaHang.GiaoDienChinhNhaHang;
-import com.example.duan1.FragemntMain.TravrelFragment;
-import com.example.duan1.FragemntMain.chuyenBayFragment.ThanhToanChuyenBay;
-import com.example.duan1.FragemntMain.likeFragment.LikeFragment;
+import com.example.duan1.KhachHang.HomeFragMent;
+import com.example.duan1.KhachHang.KhachSan.DanhSachPhong;
+import com.example.duan1.KhachHang.NhaHang.GiaoDienChinhNhaHang;
+import com.example.duan1.KhachHang.TravrelFragment;
+import com.example.duan1.KhachHang.chuyenBayFragment.ThanhToanChuyenBay;
+import com.example.duan1.KhachHang.likeFragment.LikeFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -40,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     Button btnAdd;
     BottomNavigationView bottomNavigationView;
     Fragment fragment = null;
-    String username;
+    String username,tenNguoiDung,diaChi,sdt,mail;
+    Integer timeShip = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +56,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             buildGoogleApiClient();
         }
         Bundle b = getIntent().getBundleExtra("UserInfo");
-
-  username =  b.getString("username");
-
+        username = b.getString("username");
+        tenNguoiDung = b.getString("name");
+        diaChi = b.getString("diachi");
+        sdt  = b.getString("sdt");
+        mail = b.getString("mail");
 
     }
 
@@ -75,8 +80,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     // locaiton
     public String getLocation(Double lat, Double lon) {
-        String KhoangCach ="";
-        Double khoanCach =0.0;
+        String KhoangCach = "";
+        Double khoanCach = 0.0;
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // Kiểm tra quyền hạn
             ActivityCompat.requestPermissions(this,
@@ -92,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 Double varKc = NhaHangDao.TinhKhoangCachNhaHang(latitude, longitude, lat, lon);
                 khoanCach = varKc;
                 Toast.makeText(this, String.valueOf(khoanCach), Toast.LENGTH_SHORT).show();
-                Log.d("toat",String.valueOf(khoanCach));
-                KhoangCach = String.valueOf(khoanCach).substring(0,2);
+                Log.d("toat", String.valueOf(khoanCach));
+                KhoangCach = String.valueOf(khoanCach).substring(0, 2);
                 return KhoangCach;
 
             } else {
@@ -143,10 +148,25 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 break;
         }
     }
-    public void changeFragmet2(int idLayout,String nameNh,String idNh,String locaiton){
-        switch (idLayout){
+
+    public void changeFragmet2(int idLayout, String nameNh, String idNh, String locaiton) {
+        switch (idLayout) {
             case R.layout.giaodien_chinh_nhahang:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new GiaoDienChinhNhaHang(nameNh,idNh,locaiton)).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new GiaoDienChinhNhaHang(nameNh, idNh, locaiton)).commit();
+                break;
+        }
+    }
+    public void changeFragment4(int id, String idKs, Context context){
+        switch (id){
+            case R.layout.danhsachphong_fragment:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new DanhSachPhong(getSupportFragmentManager(),context,idKs)).commit();
+        }
+    }
+
+    public void changeFragment3(int idLayout, String nameNh, String idNh, String locaiton) {
+        switch (idLayout) {
+            case R.layout.giaodien_chinh_nhahang:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragmentcontainer, new GiaoDienChinhNhaHang(nameNh, idNh, locaiton)).commit();
                 break;
         }
     }
@@ -185,16 +205,60 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         gac.disconnect();
         super.onStop();
     }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public static String TimeNow(){
+    public static String TimeNow() {
         DateFormat dateFormat = new SimpleDateFormat("dd,MM,yyyy, HH.mm");
         String date = dateFormat.format(Calendar.getInstance().getTime());
         return date;
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static String TimeShip() {
+        DateFormat dateFormat = new SimpleDateFormat("HH");
+        DateFormat dateFormat1 = new SimpleDateFormat("mm");
+        int gio = Integer.parseInt(dateFormat.format(Calendar.getInstance().getTime()));
+        int phut = Integer.parseInt(dateFormat1.format(Calendar.getInstance().getTime()));
+        int time =30;
+        if(phut>30){
+            gio = gio+1;
+            phut = (time + phut)-60;
 
-    public String getUsername(){
+        }else {
+            gio = gio *1;
+            phut =phut+30;
+        }
+        String timeShip = String.valueOf(gio) + "h:"+String.valueOf(phut)+"'";
+        return timeShip;
+
+    }
+
+    public String getUsername() {
         String tk = username;
         return tk;
     }
+//    public String getNameNd(){
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User");
+//        databaseReference.orderByChild("username").equalTo(String.valueOf(getUsername())).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        })
+//
+//    }
+public String getTenNguoiDung(){
+        String ten = tenNguoiDung;
+        return  ten;
+}
+public String getDiaChi(){
+        String locatioon = diaChi;
+        return  locatioon;
+}
+
 }

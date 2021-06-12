@@ -12,7 +12,7 @@ import com.example.duan1.Admin.Model.Admin;
 import com.example.duan1.Admin.Model.User;
 import com.example.duan1.Admin.Model.UserComent;
 import com.example.duan1.Admin.Model.UserInfo;
-import com.example.duan1.FragemntMain.NhaHang.Coment.DanhSachBinhLuanAdapter;
+import com.example.duan1.KhachHang.NhaHang.Coment.DanhSachBinhLuanAdapter;
 import com.example.duan1.LoginAcivity;
 import com.example.duan1.MainActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -59,6 +59,10 @@ public class UserDao {
                         if (user.getPassword().equals(password)) {
                             Intent intent = new Intent(acivity, MainActivity.class);
                             Bundle bundle = new Bundle();
+                            bundle.putString("name",user.getTen());
+                            bundle.putString("diachi",user.getDiaChi());
+                            bundle.putString("sdt",user.getSdt());
+                            bundle.putString("mail",user.getMail());
                             bundle.putString("username", username);
                             intent.putExtra("UserInfo", bundle);
                             acivity.startActivity(intent);

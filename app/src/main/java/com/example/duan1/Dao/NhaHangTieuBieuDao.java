@@ -6,7 +6,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.duan1.Admin.Model.NhaHangTieuBieu;
-import com.example.duan1.FragemntMain.NhaHang.NhaHangTieuBieuAdapter;
+import com.example.duan1.KhachHang.NhaHang.NhaHangTieuBieuAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

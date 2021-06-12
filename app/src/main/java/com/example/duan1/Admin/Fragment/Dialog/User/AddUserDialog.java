@@ -13,11 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.duan1.Admin.Model.User;
-import com.example.duan1.Admin.Model.UserInfo;
 import com.example.duan1.R;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class AddUserDialog  extends DialogFragment {
     EditText Username,Password,NickName,Mail,Sdt,DiaChi;
@@ -48,8 +44,8 @@ public class AddUserDialog  extends DialogFragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddDAtaUser();
-                addData();
+//                AddDAtaUser();
+//             x`
                 Handler h =new Handler();
                 h.postDelayed(new Runnable() {
                     @Override
@@ -62,23 +58,23 @@ public class AddUserDialog  extends DialogFragment {
         });
         return view;
     }
-    public void addData(){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UserInFo");
-        String username =String.valueOf(Username.getText().toString());
-        String nickname =String.valueOf(NickName.getText().toString());
-        String mail =String.valueOf(Mail.getText().toString());
-        String sdt =String.valueOf(Sdt.getText().toString());
-        String diachi =String.valueOf(DiaChi.getText().toString());
-        String id = databaseReference.push().getKey();
-        UserInfo userInfo = new UserInfo(id,username,nickname,mail,diachi,sdt);
-        databaseReference.child(id).setValue(userInfo);
-    }
-    public void  AddDAtaUser(){
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User");
-        String username =String.valueOf(Username.getText().toString());
-        String password = String.valueOf(Password.getText().toString());
-        String idUser = databaseReference.push().getKey();
-        User user = new User(username,password,idUser);
-        databaseReference.child(idUser).setValue(user);
-    }
+//    public void addData(){
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("UserInFo");
+//        String username =String.valueOf(Username.getText().toString());
+//        String nickname =String.valueOf(NickName.getText().toString());
+//        String mail =String.valueOf(Mail.getText().toString());
+//        String sdt =String.valueOf(Sdt.getText().toString());
+//        String diachi =String.valueOf(DiaChi.getText().toString());
+//        String id = databaseReference.push().getKey();
+//        UserInfo userInfo = new UserInfo(id,username,nickname,mail,diachi,sdt);
+//        databaseReference.child(id).setValue(userInfo);
+//    }
+//    public void  AddDAtaUser(){
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User");
+//        String username =String.valueOf(Username.getText().toString());
+//        String password = String.valueOf(Password.getText().toString());
+//        String idUser = databaseReference.push().getKey();
+//        User user = new User(username,password,idUser);
+//        databaseReference.child(idUser).setValue(user);
+//    }
 }

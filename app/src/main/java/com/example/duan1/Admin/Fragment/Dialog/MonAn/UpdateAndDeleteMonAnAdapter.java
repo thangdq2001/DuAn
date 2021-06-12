@@ -68,7 +68,10 @@ public class UpdateAndDeleteMonAnAdapter extends RecyclerView.Adapter<UpdateAndD
             update = itemView.findViewById(R.id.imgUpdateMonAn);
         }
     }
-
+    public void resetAdpter(){
+        arrayList.clear();
+        notifyDataSetChanged();
+    }
     public void updateAdapter(MonAn monAn) {
         arrayList.add(monAn);
         notifyDataSetChanged();

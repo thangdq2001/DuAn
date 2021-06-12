@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.duan1.Admin.Fragment.Dialog.phongKhachSan.DanhSachPhongKhachSanAdapter;
 import com.example.duan1.Admin.Model.KhachSanPhong;
+import com.example.duan1.KhachHang.KhachSan.DanhSachPhongAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -66,5 +67,28 @@ public class KhachSanPhongDao {
        });
 
 
+    }
+    public static void readAllKh(String Maks, final DanhSachPhongAdapter adapter, final Context context){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("PhongKhachSan");
+        ref.orderByChild("idKhachSan").equalTo(Maks).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                adapter.resetAdapter();
+                if (snapshot.exists()) {
+                    for (DataSnapshot i:snapshot.getChildren()){
+                        KhachSanPhong ks = i.getValue(KhachSanPhong.class);
+                        adapter.updateAdapter(ks);
+                    }
+                }
+                else {
+                    Toast.makeText(context, "Cảnh báo: Không có dữ liệu", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
